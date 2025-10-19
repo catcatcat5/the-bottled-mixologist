@@ -12,10 +12,10 @@ export default function App() {
     >
       <div className="bg-black/50 p-10 rounded-2xl backdrop-blur-sm">
         <h1 className="text-5xl font-bold mb-4 drop-shadow-lg">
-          <font face="cambria math">The Bottled Mixologist</font> 🍸
+          <font face="cambria math">The Bottled Mixologist</font>
         </h1>
         <p className="text-lg max-w-xl mx-auto mb-6">
-          Small-batch syrups, natural ingredients, and sustainable indulgence.
+          <font face="cambria math">Small batch detail, homemade syrups, quality ingredients.<BR></BR>Sustainable methods, eco-friendly & recycled bottles.</font>
         </p>
         <p className="text-md italic text-gray-200">
           Crafted with care — from the shaker to the shelf.
