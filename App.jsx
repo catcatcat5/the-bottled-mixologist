@@ -1,29 +1,36 @@
-import React from 'react'
-import site from '../content/site.json'
-import products from '../content/products.json'
-import recipes from '../content/recipes.json'
-import { BadgePercent, Leaf, ShieldCheck, Truck, Mail, Instagram, Youtube, ShoppingCart, ArrowRight, Star, BookOpen, Martini } from 'lucide-react'
+import React from "react";
+import "./index.css";
 
-function AnnouncementBar() { /* ...same as previous... */ return (
-  <div className="w-full bg-neutral-900 text-white text-sm">
-    <div className="mx-auto max-w-6xl px-4 py-2 flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <BadgePercent className="h-4 w-4" />
-        <span>Free US shipping $49+ · Sign up for 10% off</span>
-      </div>
-      <a href="#newsletter" className="underline decoration-dotted">Join the list</a>
+export default function App() {
+  return (
+    <div className="min-h-screen bg-white text-gray-800 flex flex-col items-center justify-center p-8">
+      <header className="text-center mb-8">
+        <h1 className="text-4xl font-bold mb-2">The Bottled Mixologist 🍸</h1>
+        <p className="text-lg text-gray-600">
+          Small-batch syrups, natural flavors, and eco-friendly ingredients
+        </p>
+      </header>
+
+      <main className="max-w-3xl text-center">
+        <p className="mb-4">
+          ✨ <strong>Handcrafted</strong> syrups and mixers made from clean,
+          pronounceable ingredients.
+        </p>
+        <p className="mb-4">
+          🌿 Sustainably produced and packaged — zero waste where possible.
+        </p>
+        <p className="mb-4">
+          🛒 Order online, bundle with teas or candles, and support small-batch
+          artisans.
+        </p>
+        <p className="mt-8 text-gray-500">
+          Follow us on Instagram 📸 @thebottledmixologist
+        </p>
+      </main>
+
+      <footer className="mt-12 text-gray-400 text-sm">
+        © {new Date().getFullYear()} The Bottled Mixologist — Crafted in Kent, WA
+      </footer>
     </div>
-  </div>
-)}
-function Nav(){return(<header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b"><div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between"><div className="flex items-center gap-2 font-semibold"><Martini className="h-5 w-5" /> {site.name}</div><nav className="flex items-center gap-5 text-sm"><a href="#shop" className="hover:underline">Shop</a><a href="#recipes" className="hover:underline">Recipes</a><a href="#about" className="hover:underline">About</a><a href="#faq" className="hover:underline">FAQ</a><a href="#contact" className="hover:underline">Contact</a></nav></div></header>)}
-function Hero(){return(<section className="relative"><div className="h-[56vh] w-full bg-cover bg-center" style={{backgroundImage:"url(https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=2000&auto=format&fit=crop)"}}/><div className="mx-auto max-w-5xl -mt-24 px-4"><div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8"><h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Bar‑worthy drinks. <span className="text-rose-700">Zero junk.</span></h1><p className="mt-3 text-neutral-700 max-w-2xl">{site.pitch}</p><div className="mt-5 flex flex-wrap gap-3"><a href="#shop" className="inline-block"><button className="rounded-2xl px-5 py-3 text-base bg-neutral-900 text-white hover:opacity-90"><span className="inline-flex items-center"><ShoppingCart className="h-4 w-4 mr-2" /> Shop bestsellers</span></button></a><a href="#recipes" className="inline-flex items-center text-sm underline">Explore easy recipes <ArrowRight className="h-4 w-4 ml-1" /></a></div><div className="mt-4 flex items-center gap-4 text-sm text-neutral-700"><span className="inline-flex items-center gap-2"><Leaf className="h-4 w-4" /> Clean‑label ingredients</span><span className="inline-flex items-center gap-2"><ShieldCheck className="h-4 w-4" /> Small‑batch quality</span><span className="inline-flex items-center gap-2"><Truck className="h-4 w-4" /> Fast shipping</span></div></div></div></section>)}
-function ProductCard({p}){return(<div className={`rounded-2xl overflow-hidden border ${p.featured?"ring-2 ring-rose-600":""}`}><div className="aspect-[4/3] w-full bg-neutral-200"><img src={p.img} alt={p.name} className="h-full w-full object-cover"/></div><div className="p-4"><h3 className="text-lg font-semibold leading-tight">{p.name}</h3><p className="mt-1 text-sm text-neutral-700">{p.description}</p><div className="mt-3 flex flex-wrap gap-2 text-xs text-neutral-600">{p.badges?.map(t=>(<span key={t} className="rounded-full border px-2 py-1">{t}</span>))}</div><div className="mt-4 flex items-center justify-between"><span className="font-semibold">{p.price}</span><a href={p.stripeUrl} target="_blank" rel="noreferrer"><button className="rounded-xl px-4 py-2 bg-neutral-900 text-white hover:opacity-90">Buy</button></a></div></div></div>)}
-function Shop(){return(<section id="shop" className="mx-auto max-w-6xl px-4 py-12"><div className="flex items-end justify-between mb-6"><h2 className="text-2xl font-semibold">Bestsellers</h2><p className="text-sm text-neutral-600">Secure Stripe checkout • No account needed</p></div><div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{products.map(p=><ProductCard key={p.id} p={p}/>)}</div></section>)}
-function Recipes(){return(<section id="recipes" className="mx-auto max-w-6xl px-4 py-12"><div className="flex items-end justify-between mb-6"><h2 className="text-2xl font-semibold">Easy at‑home recipes</h2><a href="#" className="text-sm underline">See all</a></div><div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{recipes.map(r=>(<div key={r.id} className="rounded-2xl overflow-hidden border"><div className="aspect-[4/3] w-full bg-neutral-200"><img src={r.img} alt={r.name} className="h-full w-full object-cover"/></div><div className="p-4"><h3 className="text-lg font-semibold leading-tight">{r.name}</h3><p className="mt-1 text-sm text-neutral-700">{r.blurb}</p><div className="mt-4"><a href={r.href} className="inline-flex items-center underline text-sm">Open recipe <BookOpen className="h-4 w-4 ml-1"/></a></div></div></div>))}</div></section>)}
-function About(){return(<section id="about" className="mx-auto max-w-4xl px-4 py-12"><h2 className="text-2xl font-semibold mb-3">About TBM</h2><p className="text-neutral-700">We craft clean‑label syrups, mixers, and bar kits so home bartenders can shake professional‑quality drinks without mystery ingredients. Minority‑woman‑owned, sustainability‑minded, and small‑batch by design.</p></section>)}
-function SocialProof(){return(<section className="mx-auto max-w-6xl px-4 py-12"><div className="rounded-2xl bg-neutral-50 border p-6 sm:p-8"><h3 className="text-xl font-semibold mb-4 flex items-center gap-2"><Star className="h-5 w-5"/> Loved by home bartenders</h3><div className="grid gap-6 sm:grid-cols-3 text-sm text-neutral-800"><p>“The vanilla syrup is chef’s kiss. Finally something without weird stabilizers.”</p><p>“Margarita kit was a hit at our dinner party—measured, balanced, foolproof.”</p><p>“Iced coffee upgraded. Demerara 2:1 belongs in every fridge.”</p></div></div></section>)}
-function FAQ(){return(<section id="faq" className="mx-auto max-w-4xl px-4 py-12"><h2 className="text-2xl font-semibold mb-6">FAQ</h2><div className="space-y-5 text-neutral-800"><details className="group rounded-xl border p-4"><summary className="cursor-pointer font-medium">What’s in your syrups?</summary><p className="mt-2 text-neutral-700">Real fruit, sugar, water, and acid (like lemon)—no gums, no artificial flavors.</p></details><details className="group rounded-xl border p-4"><summary className="cursor-pointer font-medium">Shipping & returns</summary><p className="mt-2 text-neutral-700">Orders ship in 2–3 business days. If anything arrives damaged, email us within 7 days and we’ll fix it.</p></details><details className="group rounded-xl border p-4"><summary className="cursor-pointer font-medium">Do I need an account?</summary><p className="mt-2 text-neutral-700">Nope. Checkout is handled via secure Stripe links.</p></details></div></section>)}
-function Contact(){return(<section id="contact" className="mx-auto max-w-4xl px-4 py-12"><h2 className="text-2xl font-semibold mb-4">Contact</h2><div className="rounded-2xl border p-6 bg-white"><p className="text-neutral-700 mb-4">Wholesale, collabs, or questions? Say hi: <a className="underline" href={`mailto:${site.email}`}>{site.email}</a></p><form name="contact" method="POST" data-netlify="true" className="grid gap-3 max-w-xl"><input type="hidden" name="form-name" value="contact" /><input className="rounded-xl border px-3 py-2" name="name" placeholder="Your name" required /><input className="rounded-xl border px-3 py-2" name="email" placeholder="Email" required type="email" /><textarea className="rounded-xl border px-3 py-2" name="message" placeholder="Message" rows={4} required /><button type="submit" className="w-fit rounded-xl px-4 py-2 bg-neutral-900 text-white hover:opacity-90"><Mail className="h-4 w-4 mr-2 inline-block"/>Send</button></form></div></section>)}
-function Footer(){const year=new Date().getFullYear();return(<footer className="border-t"><div className="mx-auto max-w-6xl px-4 py-8 text-sm text-neutral-600 flex flex-col sm:flex-row items-center justify-between gap-2"><p>© {year} {site.name}</p><div className="flex items-center gap-4"><a className="inline-flex items-center gap-1 underline" href={site.socials.instagram} target="_blank" rel="noreferrer"><Instagram className="h-4 w-4"/>Instagram</a><a className="inline-flex items-center gap-1 underline" href={site.socials.youtube} target="_blank" rel="noreferrer"><Youtube className="h-4 w-4"/>YouTube</a><a className="underline" href={`mailto:${site.email}`}>Email</a></div></div></footer>)}
-
-export default function App(){return(<div className="min-h-screen bg-white text-neutral-900"><AnnouncementBar/><Nav/><Hero/><Shop/><Recipes/><About/><SocialProof/><FAQ/><Contact/><Footer/></div>)}
+  );
+}
