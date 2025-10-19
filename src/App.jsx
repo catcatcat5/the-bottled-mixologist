@@ -15,7 +15,7 @@ export default function App() {
           <font face="cambria math">The Bottled Mixologist</font>
         </h1>
         <p className="text-lg max-w-xl mx-auto mb-6">
-          <font face="cambria math">Small batch detail, homemade syrups, quality ingredients.<br />Sustainable methods, eco-friendly & recycled bottles.</font>
+          <font face="cambria math">Small batch detail, homemade syrups, quality ingredients.<br /><i>Sustainable methods, eco-friendly & recycled bottles.</font></i>
         </p>
         <p className="text-md italic text-gray-200">
           <font face="freestyle script">Crafted with care — from the shaker to your shelf.</font>
