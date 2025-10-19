@@ -10,6 +10,7 @@ export default function App() {
           Small-batch syrups, natural flavors, and eco-friendly ingredients
         </p>
       </header>
+<img src="https://cdn.shopify.com/s/files/1/0627/1729/6877/files/logoooborder.png?v=1661262694"></img>
       <main className="max-w-3xl text-center">
         <p className="mb-4">✨ Handcrafted. 🌿 Clean-label. 🚚 Fast shipping.</p>
       </main>
