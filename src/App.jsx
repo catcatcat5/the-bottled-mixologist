@@ -18,7 +18,7 @@ export default function App() {
           <font face="cambria math">Small batch detail, homemade syrups, quality ingredients.<br />Sustainable methods, eco-friendly & recycled bottles.</font>
         </p>
         <p className="text-md italic text-gray-200">
-          Crafted with care — from the shaker to the shelf.
+          Crafted with care — from the shaker to your shelf.
         </p>
       </div>
 
